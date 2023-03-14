@@ -12,6 +12,14 @@ const mysql = require('mysql')
 app.get('/', (req,res) => {
        
     const connect = mysql.createConnection(config)
+    // Se a tabela referente a aplicação não existir, cria a mesma
+    connect.query(
+           `CREATE TABLE IF NOT EXISTS nodedb.people (
+            id INT(11) NOT NULL AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
+            PRIMARY KEY (id)
+            )`
+        )
     
     connect.query(`insert into people (name) values ('Jean'), ('Marcos'), ('Antonio')`)
 
