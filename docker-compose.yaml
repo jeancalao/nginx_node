@@ -22,10 +22,10 @@ services:
 
   nginx:
     build: 
-      context: ./nginx-node
+      context: ./nginx
       dockerfile: Dockerfile.prod
-    image: nginx-node:prod
-    container_name: nginx-node
+    image: nginx:prod
+    container_name: nginx
     networks: 
       - mynet
     ports: 
